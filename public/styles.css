@@ -1,3 +1,11 @@
+input {
+  outline: 0;
+}
+
+button {
+  outline: 0;
+}
+
 body {
   color: #777;
   font-size: 12px;
@@ -84,9 +92,9 @@ a.active:visited {
   cursor: default;
 }
 
-button#purchase {
+/*button#purchase {
   margin-left: 80px;
-}
+}*/
 
 .middleHeader {
   border-bottom: 1px solid #eaeaea;

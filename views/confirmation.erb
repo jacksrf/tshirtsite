@@ -1,8 +1,13 @@
  <p>You Bought:</p>
-              <% session[:cart].each do |hash| %>
-              <div>
-                <p>Shirt: <%= hash[:item] %></p>
-                <p>Quantity: <%= hash[:quantity] %></p>
-                <p>price: <%= hash[:price].to_i * hash[:quantity].to_i %></p>
-              </div>
-              <% end %>
+ <p>--------------------------------------------</p>
+  <% session[:cart].each do |hash| %>
+ <div>
+  <p>Shirt: <%= hash[:item] %></p>
+ <p>Quantity: <%= hash[:quantity] %></p>
+  <p>price: <%= hash[:price].to_i * hash[:quantity].to_i %></p>
+  <p>--------------------------------------------</p>
+  </br>
+  </br>
+  </br>
+  </div>
+  <% end %>

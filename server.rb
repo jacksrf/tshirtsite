@@ -99,8 +99,10 @@ end
 post '/addToCart/:id' do
   shirt_id = params[:id]
   quantity = params["quantity"]
+  username = session[:username]
   selectedShirt = Inventory.find(shirt_id)
-  cartHash = {shirt_id: shirt_id, item: selectedShirt.item, price: selectedShirt.price, quantity: quantity}
+  customer = Customer.find_by({name: username})
+  cartHash = {shirt_id: shirt_id, item: selectedShirt.item, price: selectedShirt.price, quantity: quantity, customer_id: customer.id}
   cart = session[:cart]
   cart.push(cartHash)
   redirect '/'
@@ -133,7 +135,7 @@ post '/purchase' do
     purchase_hash ={
       shirt_id: hash[:shirt_id],
       quantity: hash[:quantity],
-      customer_id: customer_id
+      customer_id: hash[:customer_id]
     }
     Purchase.create(purchase_hash)
     findShirtData = Inventory.find_by({id: hash[:shirt_id]})
@@ -209,7 +211,8 @@ end
 get '/myAccount' do
   username = session[:username]
   info = Customer.find_by({name: username})
-  erb :myAccount, locals: {info: info}
+  purchases = info.purchases
+  erb :myAccount, locals: {info: info, purchases: purchases}
 end
 
 get '/logout' do

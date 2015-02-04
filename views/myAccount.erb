@@ -3,13 +3,13 @@
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href='http://fonts.googleapis.com/css?family=Sanchez:400italic,400' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link rel="stylesheet" type="text/css" href="font-awesome.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
-  <title>BinaryCode</title>
+  <title>Tshirt.ly</title>
   <style>
     /** {
       font-family: 'Sanchez', serif;
@@ -43,7 +43,7 @@
       <div class="container">
         <div class="middleContainer clearfix">
           <div class="siteLogo pull-left">
-            <h1>BinaryCode</h1>
+            <h1>Tshirt.ly</h1>
           </div>
           <div class="pull-right">
             <form method="get" action="page" class="siteSearch">
@@ -54,7 +54,7 @@
             </form>
           </div>
           <div class="pull-right">
-            <div class="btn-group">
+            <!-- <div class="btn-group">
               <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                 $ <span class="caret"></span>
               </a>
@@ -79,7 +79,7 @@
                 <li class="divider"></li>
                 <li><a href="#">AR</a></li>
               </ul>
-            </div>
+            </div> -->
             <div class="btn-group">
               <a class="btn-dropdown-toggle" data-toggle="dropdown" href="#">
                 <i class="icon-shopping-cart"></i>
@@ -186,20 +186,55 @@
       <h4>ADDRESS:</h4>
       <h4><%= info[:address] %></h4>
       <h4><%= info[:city] %>, <%= info[:state] %> <%= info[:zip] %></h4>
+    </div>
+  </div>
     </br >
     </br >
     </br >
     </br >
+    <div class="container">
+    <h1 class="col-md-offset-2">Purchases:</h1>
+    <div class="row">
+
+      <div class="col-md-2 col-md-offset-2">
+        <p>Shirt ID:</p>
+      </div>
+      <div class="col-md-2">
+        <p>Quantity:</p>
+      </div>
+      <!-- <div class="col-md-2">
+        <p>Customer ID:</p>
+      </div> -->
+
+    </div>
+
+      <% purchases.each do |purchase| %>
+
+        <div class="row">
+
+          <div class="col-md-2 col-md-offset-2">
+            <p><%= purchase.shirt_id %></p>
+          </div>
+          <div class="col-md-2">
+            <p><%= purchase.quantity %></p>
+          </div>
+          <!-- <div class="col-md-2">
+            <p><%= purchase.customer_id %></p>
+          </div> -->
+
+        </div>
+      <% end %>
+    </div>
     </br >
     </br >
     </br >
     </div>
-  </div>
+
     <footer>
       <div class="footerOuter">
         <div class="container">
           <div class="row-fluid">
-            <div class="span6">
+            <!-- <div class="span6">
               <div class="titleHeader clearfix">
                 <h3>Useful Links</h3>
               </div>
@@ -223,7 +258,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <div class="span3">
               <div class="titleHeader clearfix">
                 <h3>Contact Info</h3>
@@ -251,25 +286,25 @@
                 </ul>
               </div>
             </div>
-            <div class="newsletter">
+            <!-- <div class="newsletter">
               <form method="get" action="page">
                 <input class="input-block-level" type="text" name="name" value="" placeholder="Your Name...">
                 <input class="input-block-level" type="text" name="email" value="" placeholder="Your Email...">
                 <button class="btn btn-block" type="submit" name="">Join Us Now</button>
               </form>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
       <div class="container">
         <div class="row">
           <div class="span12">
-            <ul class="payments inline pull-right">
+            <!-- <ul class="payments inline pull-right">
               <li class="visa"></li>
               <li class="mastercard"></li>
               <li class="paypal"></li>
               <li class="discover"></li>
-            </ul>
+            </ul> -->
             <p>© Copyright 2015 binarycode.com</p>
           </div>
         </div>
