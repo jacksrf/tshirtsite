@@ -3,60 +3,272 @@
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
+  <link href='http://fonts.googleapis.com/css?family=Sanchez:400italic,400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="font-awesome.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
-  <title></title>
+  <title>BinaryCode</title>
   <style>
-  /*.container {display: inline-f;}
-  .shirts {margin: auto;}*/
-  h2 {text-align: center;}
-  img {width: 300px}
-  footer {height: 100px}
+    /** {
+      font-family: 'Sanchez', serif;
+    }
+    h2 {text-align: center;}
+    img {width: 300px}*/
   </style>
 </head>
 <body>
-  <div class="row">
-    <div class="col-md-2 col-md-offset-3">
-      <h1>shirts:</h1>
+  <header>
+    <div class="upperHeader">
+      <div class="container">
+        <ul class="pull-right inline">
+          <li><a class="invarseColor" href="#">My Account</a></li>
+          <li class="divider-vertical"></li>
+          <li><a class="invarseColor" href="#">My Wish List</a></li>
+          <li class="divider-vertical"></li>
+          <li><form class="invarseColor" method="post" action="/checkout"><button>Shopping Cart (<%= session[:cart].length %>)</button></form></li>
+          <li class="divider-vertical"></li>
+          <li><a class="invarseColor" href="#">Checkout</a></li>
+        </ul>
+        <p>Welcome to BinaryCode, <a href="#">Login</a> or <a href="#">Create a new account</a></p>
+      </div>
     </div>
-    <div class="col-md-2 col-md-offset-1">
-      <form action="/orders" method="get">
-        <button>Orders</button>
-      </form>
-    </div>
-    <div class="col-md-1">
-      <form action="/checkout" method="post">
-        <button>Checkout <%= session[:cart].length %></button>
-      </form>
-    </div>
-    <div class="col-md-2 col-md-offset-1">
-      <form action="/logout" method="get">
-        <button>LOGOUT</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="container">
-    <% inventory.each do |item| %>
-      <!-- <div class="row"> -->
-        <div class="col-md-4 shirts">
-          <h2><%= item.item %></h2>
-          <img src="<%= item.url %>">
-          <h4>Price: $<%= item.price %></h4>
-          <% if item.quantity > 0 %>
-            <h4>Quantity Available: <%= item.quantity %></h4>
-            <form action="/shirt/<%= item.id %>" method="GET">
-              <button>BUY</button>
+    <div class="middleHeader">
+      <div class="container">
+        <div class="middleContainer clearfix">
+          <div class="siteLogo pull-left">
+            <h1><a href="#">BinaryCode</a></h1>
+          </div>
+          <div class="pull-right">
+            <form method="get" action="page" class="siteSearch">
+              <div class="input-append">
+                <input type="text" class="span2" id="appendedInputButton" placeholder="Search...">
+                <button class="btn btn-primary" type="submit" name=""><i class="icon-search"></i></button>
+              </div>
             </form>
-          <% else %>
-            <h2>SOLD OUT!!!!!</h2>
-          <% end %>
+          </div>
+          <div class="pull-right">
+            <div class="btn-group">
+              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                $ <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu currency">
+                <li><a href="#">$</a></li>
+                <li class="divider"></li>
+                <li><a href="#">¥</a></li>
+                <li class="divider"></li>
+                <li><a href="#">£</a></li>
+                <li class="divider"></li>
+                <li><a href="#">€</a></li>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                EN <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu language">
+                <li><a href="#">FR</a></li>
+                <li class="divider"></li>
+                <li><a href="#">CH</a></li>
+                <li class="divider"></li>
+                <li><a href="#">AR</a></li>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <a class="btn-dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="icon-shopping-cart"></i>
+                <span class="caret"></span>
+              </a>
+              <div class="dropdown-menu cart-content pull-right">
+                <table class="table-cart">
+                  <tbody>
+                    <tr>
+                      <td class="cart-product-info">
+                        <a href="#"><img src="public/img/72x72.jpg" alt="product image"></a>
+                        <div class="cart-product-desc">
+                          <p><a class="invarseColor" href="#">Some Random Text</a></p>
+                          <ul class="unstyled">
+                            <li>Available: Yes</li>
+                            <li>Color: Black</li>
+                          </ul>
+                        </div>
+                      </td>
+                      <td class="cart-product-setting">
+                        <p><strong>1x-$50.00</strong></p>
+                        <a href="#" class="remover-pro" data-toggle="tooltip" data-title="Delete">
+                          <i class="icon-trash"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="cart-product-info">
+                        <a href="#"><img src="" alt="product image"></a>
+                        <div class="cart-product-desc">
+                          <p><a class="invarseColor" href="#">Some Random Text</a></p>
+                          <ul class="unstyled">
+                            <li>Available: Yes</li>
+                            <li>Color: Black</li>
+                          </ul>
+                        </div>
+                      </td>
+                      <td class="cart-product-setting">
+                        <p><strong>1x-$50.00</strong></p>
+                        <a href="#" class="remover-pro" data-toggle="tooltip" data-title="Delete">
+                          <i class="icon-trash"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="cart-product-info">
+                        <a href="#"><img src="" alt="product image"></a>
+                        <div class="cart-product-desc">
+                          <p><a class="invarseColor" href="#">Some Random Text</a></p>
+                          <ul class="unstyled">
+                            <li>Available: Yes</li>
+                            <li>Color: Black</li>
+                          </ul>
+                        </div>
+                      </td>
+                      <td class="cart-product-setting">
+                        <p><strong>1x-$50.00</strong></p>
+                        <a href="#" class="remover-pro" data-toggle="tooltip" data-title="Delete">
+                          <i class="icon-trash"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
-      <!-- </div> -->
+      </div>
+    </div>
+    <!-- <div class="mainNav">
+      <div class="navbar">
+        <ul class="nav">
+          <li class="active"><a href="#"><i class="icon-home"></i></a></li>
+          <li><a href="#">Pages &nbsp;<i class="icon-caret-down"></i></a>
+            <div>
+              <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="#">Women &nbsp;<i class="icon-caret-down"></a>
+            <div>
+              <ul>
+                <li></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div> -->
+  </header>
+  <div class="container">
+    <!-- <h1>shirts:</h1> -->
+    <% inventory.each do |item| %>
+    <!-- <div class="row"> -->
+    <div class="col-md-4">
+      <h2><%= item.item %></h2>
+      <img class="img-thumbnail" src="<%= item.url %>">
+      <h4>Price: $<%= item.price %></h4>
+      <% if item.quantity > 0 %>
+      <h4>Quantity Available: <%= item.quantity %></h4>
+      <form action="/shirt/<%= item.id %>" method="GET" class="form-group">
+        <button class="btn btn-primary btn-lg btn-block">BUY</button>
+      </form>
+      <% else %>
+      <h2>SOLD OUT!!!!!</h2>
+      <% end %>
+    </div>
+    <!-- </div> -->
     <% end %>
   </div>
-  <footer>
-  </footer>
+    <footer>
+      <div class="footerOuter">
+        <div class="container">
+          <div class="row-fluid">
+            <div class="span6">
+              <div class="titleHeader clearfix">
+                <h3>Useful Links</h3>
+              </div>
+              <div class="usefulLinks">
+                <div class="row-fluid">
+                  <div class="span6">
+                    <ul class="unstyled">
+                      <li><a class="invarseColor" href="#"><i class="icon-caret-right"></i>About Us</a></li>
+                      <li><a class="invarseColor" href="#"><i class="icon-caret-right"></i>Delivery Information</a></li>
+                      <li><a class="invarseColor" href="#"><i class="icon-caret-right"></i>Privacy Policy</a></li>
+                      <li><a class="invarseColor" href="#"><i class="icon-caret-right"></i>Terms &amp; Conditions</a></li>
+                    </ul>
+                  </div>
+                  <div class="span6">
+                    <ul>
+                      <li><a class="invarseColor" href="#"><i class="icon-caret-right"></i>Top Brands</a></li>
+                      <li><a class="invarseColor" href="#"><i class="icon-caret-right"></i>Customer Support</a></li>
+                      <li><a class="invarseColor" href="#"><i class="icon-caret-right"></i>Special Gifts</a></li>
+                      <li><a class="invarseColor" href="#"><i class="icon-caret-right"></i>Browse Site Map</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="span3">
+              <div class="titleHeader clearfix">
+                <h3>Contact Info</h3>
+              </div>
+              <div class="contactInfo">
+                <ul class="unstyled">
+                  <li>
+                    <button class="btn btn-small">
+                      <i class="icon-volume-up"></i>
+                    </button>
+                    Call Us: <a class="invarseColor" href="#">123-456-7890</a>
+                  </li>
+                  <li>
+                    <button class="btn btn-small">
+                      <i class="icon-envelope-alt"></i>
+                    </button>
+                    <a class="invarseColor" href="#">shop@binarycode.com</a>
+                  </li>
+                  <li>
+                    <button class="btn btn-small">
+                      <i class="icon-map-marker"></i>
+                    </button>
+                    22 Some Street, New York, NY 10010
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="newsletter">
+              <form method="get" action="page">
+                <input class="input-block-level" type="text" name="name" value="" placeholder="Your Name...">
+                <input class="input-block-level" type="text" name="email" value="" placeholder="Your Email...">
+                <button class="btn btn-block" type="submit" name="">Join Us Now</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <ul class="payments inline pull-right">
+              <li class="visa"></li>
+              <li class="mastercard"></li>
+              <li class="paypal"></li>
+              <li class="discover"></li>
+            </ul>
+            <p>© Copyright 2015 binarycode.com</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>

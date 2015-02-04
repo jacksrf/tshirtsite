@@ -1,0 +1,220 @@
+body {
+  color: #777;
+  font-size: 12px;
+  line-height: auto;
+  font-family: 'Open Sans', Tahoma, Arial sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  background: #fff;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  color: #404040;
+  font-family: 'Sanchez', serif;
+  font-weight: 400;
+}
+h1 {font-size: 18px; text-transform: uppercase; line-height: 26px;}
+h2 {font-size: 16px; text-transform: uppercase; line-height: 22px;}
+h3 {font-size: 14px; text-transform: uppercase; line-height: 22px;}
+h4 {font-size: 14px; line-height: 20px;}
+h5 {font-size: 13px; line-height: 20px;}
+h6 {font-size: 12px; line-height: 18px;}
+.titleHeader h3 {
+  float: left;
+  background: #fff;
+  padding-right: 8px;
+}
+.titleHeader .pagers {
+  float: right;
+  background: #fff;
+  padding-left: 8px;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  margin: 0;
+  padding: 0;
+  height: 0;
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+a {
+  color: #f16325;
+}
+a:hover,
+a:active {
+  color: #f16325;
+  text-decoration: underline;
+}
+a.invarseColor:link,
+a.invarseColor:visited {
+  color: #666;
+}
+a.invarseColor:hover,
+a.invarseColor:active {
+  color: #f16325;
+  text-decoration: none;
+}
+a.active:link,
+a.active:visited {
+  color: #f16325;
+  cursor: default;
+}
+iframe {
+  width: 100%;
+  border: none;
+}
+#mainContainer {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  background: #fff;
+}
+header {
+  margin-bottom: 60px;
+  padding: 5px 0 0;
+  width: 100%;
+}
+header p {
+  line-height: 14px;
+}
+.upperHeader {
+  padding-top: 4px;
+  border-bottom: 1px solid #eaeaea;
+}
+.upperHeader select.upper-nav {
+  display: none;
+}
+.upperHeader .inline {
+  margin: -2px 0 0 0;
+  padding: 0;
+}
+.upperHeader .inline li {
+  margin: 0 0 0 5px;
+  padding: 0;
+  display: inline-block;
+}
+.upperHeader .inline li a {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 12px;
+}
+.upperHeader > p,
+header p {
+  font-size: 11px;
+}
+.middleHeader .middleContainer {
+  padding: 30px 0;
+}
+.middleHeader .siteLogo {
+  float: left;
+  margin-top: -10px;
+}
+.middleHeader .siteLogo a {
+  width: 150px;
+  height: 54px;
+  display: block;
+}
+.middleHeader .siteSearch {
+  margin-left: 10px;
+}
+.middleHeader .currency {
+  min-width: 55px;
+}
+.middleHeader .language {
+  min-width: 65px;
+}
+.mainNav {
+  background: #e7e7e7;
+  border-top: 1px solid #d7d7d7;
+  border-bottom: 1px solid #d7d7d7;
+}
+.footerOuter {
+  padding: 18px 0;
+  margin-bottom: 12px;
+  background: #e7e7e7;
+  border-top: 1px dotted #b4b4b4;
+}
+footer .titleHeader {
+  margin: 0;
+}
+footer .titleHeader .pagers {
+  float: right;
+  background: #e7e7e7;
+  padding-right: 8px;
+}
+footer .usefulLinks .unstyled {
+  margin-top: 14px;
+}
+footer .usefulLinks .unstyled li {
+  border-bottom: 1px dotted #b4b4b4;
+}
+footer .usefulLinks .unstyled li:last-child {
+  border-bottom: none;
+}
+footer .usefulLinks .unstyled li a {
+  padding: 6px 0;
+  display: block;
+  font-weight: 600;
+}
+footer .usefulLinks .unstyled li a:hover,
+footer .usefulLinks .unstyled li a:active {
+  background: #e0e0e0;
+}
+footer .usefulLinks .unstyled li i {
+  font-size: 18px;
+}
+footer .contactInfo {
+  margin-top: 14px;
+}
+footer .contactInfo ul li {
+  border-bottom: 1px dotted #b4b4b4;
+  padding: 7px 0;
+  display: block;
+  font-weight: 600;
+}
+footer .contactInfo ul li:hover,
+footer .contactInfo ul li:active {
+  background: #e0e0e0;
+}
+footer .contactInfo ul li:last-child {
+  border-bottom: none;
+}
+footer .contactInfo ul li button {
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  margin-right: 5px;
+  text-align: center;
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
+  border-radius: 500px;
+}
+footer .contactInfo ul li button i {
+  font-size: 16px;
+}
+footer .newsletter form {
+  margin-top: 24px;
+}
+footer .payments li {
+  width: 37px;
+  height: 26;
+  margin: 0;
+  display: inline-block;
+}
+footer .payments li.visa {
+  background-position: 0 0;
+}
+footer .payments li.mastercard {
+  background-position: 0 -35px;
+}
+footer .payments li.paypal {
+  background-position: 0 -70px;
+}
+footer .payments li.discover {
+  background-position: 0 -105px;
+}
