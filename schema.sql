@@ -13,6 +13,12 @@ CREATE TABLE customers (
   name TEXT,
   password TEXT,
   email TEXT,
+  fullName TEXT,
+  phone INTEGER,
+  address TEXT,
+  city TEXT,
+  state TEXT,
+  zip INTEGER,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

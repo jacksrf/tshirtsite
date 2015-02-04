@@ -175,24 +175,17 @@
     </div> -->
   </header>
   <div class="container">
-    <!-- <h1>shirts:</h1> -->
-    <% inventory.each do |item| %>
-    <!-- <div class="row"> -->
-    <div class="col-md-4">
-      <h2><%= item.item %></h2>
-      <img class="img-thumbnail" src="<%= item.url %>">
-      <h4>Price: $<%= item.price %></h4>
-      <% if item.quantity > 0 %>
-      <h4>Quantity Available: <%= item.quantity %></h4>
-      <form action="/shirt/<%= item.id %>" method="GET" class="form-group">
-        <button class="btn btn-primary btn-lg btn-block">BUY</button>
-      </form>
-      <% else %>
-      <h2>SOLD OUT!!!!!</h2>
-      <% end %>
+    <div class="col-md-4 col-md-offset-2">
+      <h2>My Account:</h2>
+      <h4><%= info[:name] %></h4>
+      <h4><%= info[:fullName] %></h4>
+      <h4><%= info[:email] %></h4>
+      <h4><%= info[:phone] %></h4>
+      <h4><%= info[:address] %></h4>
+      <h4><%= info[:city] %></h4>
+      <h4><%= info[:state] %></h4>
+      <h4><%= info[:zip] %></h4>
     </div>
-    <!-- </div> -->
-    <% end %>
   </div>
     <footer>
       <div class="footerOuter">

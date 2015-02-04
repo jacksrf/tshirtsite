@@ -42,6 +42,11 @@ h6 {font-size: 12px; line-height: 18px;}
 .clearfix:after {
   clear: both;
 }
+
+div#signup input, div#login input {
+  width: 300px;
+}
+
 a {
   color: #f16325;
 }
@@ -64,6 +69,36 @@ a.active:visited {
   color: #f16325;
   cursor: default;
 }
+
+/*div#.
+
+div#home.container form button {
+  color: #f16325;
+  outline: 0;
+}
+div#home.container form button:hover,
+div#home.container form button:active {
+  color: #f16325;
+  text-decoration: underline;
+  outline: 0;
+}
+div#home.container form button.invarseColor:link,
+div#home.container form button.invarseColor:visited {
+  color: #666;
+  outline: 0;
+}
+div#home.container form button.invarseColor:hover,
+div#home.container form button.invarseColor:active {
+  color: #f16325;
+  text-decoration: none;
+  outline: 0;
+}
+div#home.container form button.active:link,
+div#home.container form button.active:visited {
+  color: #f16325;
+  cursor: default;
+  outline: 0;
+}*/
 iframe {
   width: 100%;
   border: none;

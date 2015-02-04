@@ -24,8 +24,12 @@ get '/' do
   if session[:valid_user] == true
     erb :index, locals: { inventory: Inventory.all() }
   else
-    erb :auth
+    erb :signup
   end
+end
+
+get '/loginPage' do
+  erb :login
 end
 
 post '/login' do
@@ -46,11 +50,21 @@ post '/login' do
   redirect '/'
 end
 
+get '/signUpPage' do
+  erb :signup
+end
+
 post '/signup' do
   username = params["username"]
   password = params["password"]
   confirmPassword = params["confirm_password"]
   email = params["email"]
+  fullName = params["fullName"]
+  phone = params["phone"]
+  address = params["address"]
+  city = params["city"]
+  state = params["state"]
+  zip = params["zip"]
 
   if password == confirmPassword
     my_password = BCrypt::Password.create(params["password"])
@@ -58,7 +72,13 @@ post '/signup' do
     customer_hash = {
         name: username,
         password: my_password,
-        email: email
+        email: email,
+        fullName: fullName,
+        phone: phone,
+        address: address,
+        city: city,
+        state: state,
+        zip: zip
       }
     Customer.create(customer_hash);
     session[:valid_user] = true
@@ -130,40 +150,6 @@ post '/purchase' do
   erb :confirmation
 end
 
-
-  # id = params[:id]
-  # username = session[:username]
-  # quantity = params["quantity"]
-  #
-  #   findCustomer = Customer.find_by({name: username })
-  #
-  #   purchase_hash ={
-  #     shirt_id: id,
-  #     quantity: params["quantity"],
-  #     customer_id: findCustomer.id
-  #   }
-  #   Purchases.create(purchase_hash)
-  #
-  #   findShirtData = Inventory.find_by({id: id})
-  #
-  #   newQuantity = Integer(findShirtData.quantity) - Integer(quantity)
-  #
-  #   inventory_hash = {
-  #     item: findShirtData.item,
-  #     price: Integer(findShirtData.price),
-  #     quantity: Integer(newQuantity),
-  #     url: findShirtData.url
-  #   }
-  #
-  #   findShirtData.update(inventory_hash)
-  #
-  #   currentPurchase = Purchases.last()
-  #   shirtInfo = Inventory.find_by(currentPurchase.shirt_id)
-  #   customerInfo = Customer.find_by(currentPurchase.customer_id)
-  #
-  #   erb :confirmation, locals: {purchaseInfo: currentPurchase, shirtInfo: shirtInfo, customerInfo: customerInfo}
-# end
-
 get '/admin' do
   erb :admin, locals: {purchases: Purchase.all(), inventory: Inventory.all()}
 end
@@ -218,6 +204,12 @@ get '/orders' do
 
   puts orders
   erb :orders, locals: {orders: orders }
+end
+
+get '/myAccount' do
+  username = session[:username]
+  info = Customer.find_by({name: username})
+  erb :myAccount, locals: {info: info}
 end
 
 get '/logout' do
