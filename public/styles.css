@@ -45,8 +45,22 @@ h6 {font-size: 12px; line-height: 18px;}
 
 div#signup input, div#login input {
   width: 300px;
+  line-height: 20px;
 }
-
+div#signup .col-md-4 button {
+  width: 300px;
+  margin-bottom: 40px;
+  background: #265a88;
+  border: none;
+  color: #fff;
+}
+div#login .col-md-4 button {
+  width: 300px;
+  margin-bottom: 40px;
+  background: #265a88;
+  border: none;
+  color: #fff;
+}
 a {
   color: #f16325;
 }
@@ -68,6 +82,15 @@ a.active:link,
 a.active:visited {
   color: #f16325;
   cursor: default;
+}
+
+button#purchase {
+  margin-left: 80px;
+}
+
+.middleHeader {
+  border-bottom: 1px solid #eaeaea;
+
 }
 
 /*div#.
@@ -121,6 +144,16 @@ header p {
   padding-top: 4px;
   border-bottom: 1px solid #eaeaea;
 }
+.upperHeader .container ul li button {
+  border: none;
+  background: #fff;
+}
+
+.upperHeader .container form button {
+  border: none;
+  background: #fff;
+  display: inline;
+}
 .upperHeader select.upper-nav {
   display: none;
 }
@@ -173,6 +206,10 @@ header p {
   margin-bottom: 12px;
   background: #e7e7e7;
   border-top: 1px dotted #b4b4b4;
+}
+.row .col-md-2 p:hover {
+  background: #d7d7d7;
+  transition: ease 0.5s;
 }
 footer .titleHeader {
   margin: 0;

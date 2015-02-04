@@ -177,14 +177,22 @@
   <div class="container">
     <div class="col-md-4 col-md-offset-2">
       <h2>My Account:</h2>
-      <h4><%= info[:name] %></h4>
-      <h4><%= info[:fullName] %></h4>
-      <h4><%= info[:email] %></h4>
-      <h4><%= info[:phone] %></h4>
+      </br >
+      <h4>USERNAME: <%= info[:name] %></h4>
+      <h4>NAME: <%= info[:fullName] %></h4>
+      <h4>EMAIL: <%= info[:email] %></h4>
+      <h4>PHONE: <%= info[:phone] %></h4>
+      </br >
+      <h4>ADDRESS:</h4>
       <h4><%= info[:address] %></h4>
-      <h4><%= info[:city] %></h4>
-      <h4><%= info[:state] %></h4>
-      <h4><%= info[:zip] %></h4>
+      <h4><%= info[:city] %>, <%= info[:state] %> <%= info[:zip] %></h4>
+    </br >
+    </br >
+    </br >
+    </br >
+    </br >
+    </br >
+    </br >
     </div>
   </div>
     <footer>

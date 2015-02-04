@@ -12,11 +12,20 @@
       <meta charset="UTF-8">
       <title>BinaryCode</title>
       <style>
-        /** {
-          font-family: 'Sanchez', serif;
+
+        .order {
+          background-color: grey;
+          width: 200px;
+          color: white;
+          padding: 5px;
         }
-        h2 {text-align: center;}
-        img {width: 300px}*/
+
+        .order button {
+          background-image: linear-gradient(to bottom,#337ab7 0,#265a88 100%);
+          border-color: #245580;
+          border-radius: 5px;
+        }
+
       </style>
     </head>
     <body>
@@ -178,7 +187,7 @@
     <div class="container">
       <h1>Your Cart:</h1>
       <% session[:cart].each do |hash| %>
-      <div class="row">
+      <div class="row order">
         <p>Shirt: <%= hash[:item] %></p>
         <p>Quantity: <%= hash[:quantity] %></p>
         <p>price: <%= hash[:price].to_i * hash[:quantity].to_i %></p>
@@ -186,10 +195,20 @@
           <button>delete</button>
         </form>
       </div>
+    </br >
       <% end %>
       </div>
       <!-- <form action="/purchase" method="post"> -->
     <button id="purchase" type="button" class="btn btn-danger" data-toggle="modal" data-target = "#confirmation">Confirm Purchase</button>
+  </br>
+  </br>
+  </br>
+  </br>
+  </br>
+  </br>
+
+
+
     <!-- </form> -->
     <div class="modal fade" id="confirmation">
       <div class="modal-dialog">
